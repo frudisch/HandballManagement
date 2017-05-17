@@ -1,0 +1,16 @@
+version: '2'
+services:
+    uaa_server-mongodb:
+        image: mongo:3.2.10
+        ports:
+            - "27017:27017"
+        command: mongos --configdb uaa_server-mongodb-config
+    uaa_server-mongodb-node:
+        build:
+            context: .
+            dockerfile: mongodb/MongoDB.Dockerfile
+        command: mongod --replSet rs1 --noprealloc --smallfiles
+    uaa_server-mongodb-config:
+        image: mongo:3.2.10
+        container_name: uaa_server-mongodb-config
+        command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db

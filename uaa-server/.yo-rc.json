@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.frudisch.manager",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "4.4.1",
+    "baseName": "uaa_server",
+    "packageName": "com.frudisch.manager",
+    "packageFolder": "com/frudisch/manager",
+    "serverPort": "10000",
+    "authenticationType": "uaa",
+    "hibernateCache": "no",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "consul",
+    "buildTool": "gradle",
+    "enableSocialSignIn": false,
+    "enableTranslation": true,
+    "applicationType": "uaa",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "skipClient": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "de"
+    ],
+    "clientPackageManager": "yarn"
+  }
+}
