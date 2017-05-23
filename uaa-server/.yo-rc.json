@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.frudisch.manager",
+      "packageName": "de.frudisch.manager.uaa",
       "nativeLanguage": "en"
     },
     "jhipsterVersion": "4.4.1",
-    "baseName": "uaa_server",
-    "packageName": "com.frudisch.manager",
-    "packageFolder": "com/frudisch/manager",
+    "baseName": "uaa",
+    "packageName": "de.frudisch.manager.uaa",
+    "packageFolder": "de/frudisch/manager/uaa",
     "serverPort": "10000",
     "authenticationType": "uaa",
     "hibernateCache": "no",

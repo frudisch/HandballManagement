@@ -10,8 +10,7 @@
 ######################
 /node/
 node_tmp/
-node_modules/mem-fs-editor/node_modules/
-node_modules
+node_modules/
 npm-debug.log.*
 
 ######################

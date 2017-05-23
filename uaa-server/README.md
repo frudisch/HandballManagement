@@ -1,4 +1,4 @@
-# uaa_server
+# uaa
 This application was generated using JHipster 4.4.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.4.1](https://jhipster.github.io/documentation-archive/v4.4.1).
 
 This is a "uaa" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
@@ -31,7 +31,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the uaa_server application for production, run:
+To optimize the uaa application for production, run:
 
     ./gradlew -Pprod clean bootRepackage
 

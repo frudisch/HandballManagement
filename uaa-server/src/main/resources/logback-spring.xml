@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="com.frudisch.manager" level="#logback.loglevel#"/>
+    <logger name="de.frudisch.manager.uaa" level="#logback.loglevel#"/>
 
     <logger name="io.github.jhipster" level="DEBUG"/>
 

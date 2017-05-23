@@ -1,18 +1,18 @@
 version: '2'
 services:
-    uaa_server-app:
-        image: uaa_server
+    uaa-app:
+        image: uaa
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_CLOUD_CONSUL_HOST=consul
             - SPRING_CLOUD_CONSUL_PORT=8500
-            - SPRING_DATA_MONGODB_URI=mongodb://uaa_server-mongodb:27017
-            - SPRING_DATA_MONGODB_DATABASE=uaa_server
+            - SPRING_DATA_MONGODB_URI=mongodb://uaa-mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=uaa
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
-    uaa_server-mongodb:
+    uaa-mongodb:
         extends:
             file: mongodb.yml
-            service: uaa_server-mongodb
+            service: uaa-mongodb
     consul:
         image: consul:0.7.2
         command: consul agent -dev -ui -client 0.0.0.0

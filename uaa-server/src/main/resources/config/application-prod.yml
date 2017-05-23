@@ -28,7 +28,7 @@ spring:
     data:
         mongodb:
             uri: mongodb://localhost:27017
-            database: uaa_server
+            database: uaa
     mail:
         host: localhost
         port: 25
@@ -45,7 +45,7 @@ spring:
 
 # ===================================================================
 # To enable SSL, generate a certificate using:
-# keytool -genkey -alias uaa_server -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+# keytool -genkey -alias uaa -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 #
 # You can also use Let's Encrypt:
 # https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm
@@ -58,7 +58,7 @@ spring:
 #        key-store: keystore.p12
 #        key-store-password: <your-password>
 #        keyStoreType: PKCS12
-#        keyAlias: uaa_server
+#        keyAlias: uaa
 # ===================================================================
 server:
     port: 10000
@@ -83,7 +83,7 @@ jhipster:
             client-id: internal
             client-secret: internal
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: uaa_server@localhost
+        from: uaa@localhost
         base-url: http://my-server-url-to-change # Modify according to your server's URL
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
@@ -91,7 +91,7 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: uaa_server
+            prefix: uaa
         prometheus:
             enabled: false
             endpoint: /prometheusMetrics
