@@ -7,7 +7,11 @@ import javax.persistence.*
 @Table(name = "T_LEAGUE")
 data class League(
 
-        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val uuid: UUID? = null,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val uuid: UUID? = null,
 
-        val name: String? = null)
+    val name: String? = null,
+
+    val region: Region? = null,
+
+    val sportCode: SportCode? = null)
