@@ -14,4 +14,6 @@ data class Team(
 
         val organisationUUID : UUID? = null,
 
-        val league: League? = null)
+        val league: League? = null,
+
+        val events: List<UUID>? = null)
