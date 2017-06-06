@@ -45,3 +45,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+cache.properties.lock
+cache.properties
+built.bin
+taskHistory.lock
+last-build.bin
