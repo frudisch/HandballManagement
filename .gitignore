@@ -54,3 +54,8 @@ last-build.bin
 *.iml
 .idea/*
 
+/kafka/*
+
+*/out/*
+
+.gradle/*
