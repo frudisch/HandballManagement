@@ -50,3 +50,7 @@ cache.properties
 built.bin
 taskHistory.lock
 last-build.bin
+
+*.iml
+.idea/*
+
