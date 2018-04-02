@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Button from './components/button';
-import List from "./container/List/List";
+import CardBox from "./container/CardBox/CardBox";
 
 let data = [
     {
@@ -27,9 +27,7 @@ class App extends Component {
                     <div className="col-sm-4"><Button text={"Delete Team"}/></div>
                 </div>
                 <div className="row">
-                    <div className="col-sm-12">
-                        <List content={data}/>
-                    </div>
+                    <CardBox content={data}/>
                 </div>
             </div>
         );
