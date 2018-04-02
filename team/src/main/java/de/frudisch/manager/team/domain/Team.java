@@ -13,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Team {
+
     private UUID id;
 
     private List<UUID> members;
