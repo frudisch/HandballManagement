@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE")
     }
 }
 
@@ -26,12 +26,12 @@ targetCompatibility = 1.8
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-webflux')
     compile('org.springframework.boot:spring-boot-starter-hateoas')
-    compile('org.springframework.kafka:spring-kafka:2.1.4.RELEASE')
+    compile('org.springframework.kafka:spring-kafka:2.1.6.RELEASE')
 	compile('org.apache.kafka:kafka-streams:1.0.1')
 
-	compileOnly('org.projectlombok:lombok')
+    compileOnly 'org.projectlombok:lombok:1.16.22'
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
-	testCompile('org.springframework.kafka:spring-kafka-test:2.1.4.RELEASE')
+	testCompile('org.springframework.kafka:spring-kafka-test:2.1.6.RELEASE')
 }

@@ -1,7 +1,6 @@
 package de.frudisch.manager.team.connector;
 
 import de.frudisch.manager.team.domain.Team;
-import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.test.rule.KafkaEmbedded;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,12 +22,14 @@ import java.util.concurrent.TimeoutException;
 import static de.frudisch.manager.team.ApplicationConfiguration.NAME_UUIDS_DATA;
 import static de.frudisch.manager.team.ApplicationConfiguration.RAW_DATA;
 import static de.frudisch.manager.team.ApplicationConfiguration.UUID_TEAM_DATA;
+import static de.frudisch.manager.team.KafkaConfiguration.NAME_TEAM_DATA_STORE;
+import static de.frudisch.manager.team.KafkaConfiguration.TEAM_DATA_STORE;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
-public class TeamConnectorTest {
+@RunWith(SpringRunner.class)
+public class TeamConnectorIntegrationTest {
 
     private static List<UUID> uuidList = asList(
             UUID.fromString("f6ee61c4-e2e2-4094-81c6-c1e69f5c1467"),
@@ -39,7 +40,7 @@ public class TeamConnectorTest {
     );
 
     @ClassRule
-    public static KafkaEmbedded embeddedKafka = new KafkaEmbedded(1, true, RAW_DATA, UUID_TEAM_DATA, NAME_UUIDS_DATA);
+    public static KafkaEmbedded embeddedKafka = new KafkaEmbedded(1, true, RAW_DATA, UUID_TEAM_DATA, NAME_UUIDS_DATA, TEAM_DATA_STORE, NAME_TEAM_DATA_STORE);
 
     @Autowired
     private KafkaTemplate<UUID, Team> kafkaTemplate;
@@ -111,8 +112,8 @@ public class TeamConnectorTest {
     @Test
     public void testUpdateTeam() throws InterruptedException, ExecutionException, TimeoutException {
         Team uut = createTeam(UUID.fromString("f6ee61c4-e2e2-4094-81c6-c1e69f5c1467"));
-        uut.setMembers(null);
         uut.setName("updatedTest!");
+        uut.setMembers(null);
 
         Team result = teamConnector.updateTeam(uut);
 

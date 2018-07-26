@@ -1,29 +1,42 @@
 package de.frudisch.manager.user.service
 
-import de.frudisch.manager.user.connector.UserConnector
+import de.frudisch.manager.user.connector.Kafka
 import de.frudisch.manager.user.domain.User
+import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Component
+import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import reactor.core.publisher.toMono
-import java.util.UUID
+import java.util.*
 
 @Component
-class UserService(val userConnector: UserConnector) {
+class UserService(val readService: ReadService, val kafka: Kafka) {
 
     fun selectUser(uuid: UUID): Mono<User> {
-        return userConnector.selectUser(uuid).toMono()
+        return readService.selectUser(uuid)
     }
 
     fun createUser(user: User): Mono<User> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        user.uuid = UUID.randomUUID()
+        kafka.sendUser(user)
+        return Mono.just(user)
     }
 
-    fun deleteUser(user: User): Mono<User> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun deleteUser(user: User): Mono<Boolean> {
+        kafka.deleteUser(user.uuid)
+        return Mono.just(true)
     }
 
     fun updateUser(user: User): Mono<User> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        kafka.sendUser(user)
+        return Mono.just(user)
+    }
+
+    fun selectAllUser(): Flux<User> {
+        return readService.getAllUser()
+    }
+
+    fun selectByFirstnameLastname(firstname: String, lastname: String): Flux<User> {
+        return readService.selectByFirstname(firstname).mergeWith(readService.selectByLastname(lastname))
     }
 
 }
