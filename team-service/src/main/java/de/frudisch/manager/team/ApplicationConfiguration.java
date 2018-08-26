@@ -60,9 +60,6 @@ public class ApplicationConfiguration {
 
         StreamsConfig streamsConfig = new StreamsConfig(props);
 
-        System.err.println("streamsconfig: " + streamsConfig.defaultValueSerde());
-        System.err.println("streamsconfig: " + streamsConfig.defaultKeySerde());
-
         return streamsConfig;
     }
 
