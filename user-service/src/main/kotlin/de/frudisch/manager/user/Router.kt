@@ -18,7 +18,6 @@ class Router(private val deleteHandler: DeleteHandler,
     @Bean
     fun apiRouter() = router {
         (accept(MediaType.APPLICATION_JSON) and "/api").nest {
-            // users
             "/user".nest {
                 GET("/", getHandler::all)
                 GET("/{uuid}", getHandler::getByUUID)
